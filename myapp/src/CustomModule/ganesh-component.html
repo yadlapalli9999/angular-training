@@ -1,0 +1,6 @@
+<h2>Hello ganesh component</h2>
+<div>{{message}}</div>
+<!-- <div>{{person.fname}}  {{person.lname}}</div> -->
+<div *ngFor="let prop of getKeeys(person)">
+    <div>{{prop}}: {{person[prop]}}</div>
+</div>
