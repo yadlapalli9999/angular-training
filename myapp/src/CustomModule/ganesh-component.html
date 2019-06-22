@@ -1,6 +1,23 @@
-<h2>Hello ganesh component</h2>
+<!-- <h2>Hello ganesh component</h2>
 <div>{{message}}</div>
 <!-- <div>{{person.fname}}  {{person.lname}}</div> -->
-<div *ngFor="let prop of getKeeys(person)">
+<!-- <div *ngFor="let prop of getKeeys(person)">
     <div>{{prop}}: {{person[prop]}}</div>
 </div>
+<div>{{helloworld().toUpperCase()}}</div> --> 
+
+<!-- <div *ngFor="let obj of users">
+    <div>{{obj.fname}}</div>
+</div> -->
+<button id="demo" type="button" (click)="showData()" >showData</button>
+<table border=1px>
+    <tr>
+        <td>fname</td>
+        <td>lname</td>
+    </tr>
+    <tr *ngFor="let obj of users">
+       <td>{{obj.fname}}</td>
+       <td>{{obj.lname}}</td>
+    </tr>
+</table>
+<nani-compon [recive]="msg" [obj]="person" [arr]="users"></nani-compon>
