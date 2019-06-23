@@ -1,0 +1,14 @@
+<table border=1px>
+    <tr>
+        <th>FNAME</th>
+        <th>LNAME</th>
+        <th>EDIT</th>
+        <th>DELETE</th>
+    </tr>
+    <tr *ngFor="let obj of arr;let i = index">
+       <td>{{obj.fname}}</td>
+       <td>{{obj.lname}}</td>
+       <td><button (click)="editUser(obj)">edit</button></td>
+       <td><button (click)="deleteUser(i)">delete</button></td>
+    </tr>
+</table>
