@@ -36,4 +36,11 @@ users;
       this.users = res
     })
   }
+  
+  delete(index){
+   console.log(index)
+   this.commonService.deleteComp1(index).subscribe((res)=>{
+     this.display();
+   })
+  }
 }

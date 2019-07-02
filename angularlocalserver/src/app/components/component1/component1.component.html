@@ -2,8 +2,9 @@
   component1 works!
 </p>
 <ul>
-  <li *ngFor="let obj of users" (click)="selectUser(obj)">
-{{obj.title}}
+  <li *ngFor="let obj of users;let i = index" >
+<span (click)="selectUser(obj)">{{obj.title}}</span>
+<span (click)="delete(i)">X</span>
   </li>
 </ul>
 <form #myform='ngForm'>

@@ -30,4 +30,7 @@ export class CommonService {
      infoComp1(){
          this.sendInfo.next();
      }
+     deleteComp1(i){
+       return this._http.delete('http://localhost:3000/users/'+i)
+     }
 }
