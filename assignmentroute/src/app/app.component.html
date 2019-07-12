@@ -1,0 +1,5 @@
+<ul *ngFor="let use of users">
+<li routerLink="/{{use.name}}" >{{use.name}}</li>
+</ul>
+
+<router-outlet></router-outlet>

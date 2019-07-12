@@ -1,0 +1,27 @@
+<p>
+  studentinfo works!
+</p>
+<button type="button" class="btn btn-primary" routerLink="./addstudent">AddStudent</button>
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">fname</th>
+        <th scope="col">lname</th>
+        <th scope="col">email</th>
+        <th scope="col">Handle</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let student of studentList;let i = index">
+       <td>{{student.id}}</td>
+       <td>{{student.fname}}</td>
+       <td>{{student.lname}}</td>
+       <td>{{student.email}}</td>
+       <td>
+         <button type="button" class="btn btn-success" (click)="editStudent(student)">Edit</button>&nbsp;&nbsp;
+         <button type="button" class="btn btn-danger" (click)="delete(student)">Delete</button>
+       </td>
+      </tr>
+    </tbody>
+  </table>
