@@ -1,0 +1,146 @@
+<p>civi-crm works!</p>
+<form style="margin-left: 200px" [formGroup]="myForm" (ngSubmit)="adduser()">
+    <fieldset class="form-group">
+        <div class="row">
+          <legend class="col-form-label col-sm-2 pt-0">Do you use CiviCRM?</legend>
+          <div class="col-sm-10">
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="radio" formControlName="radio" id="radio1" value="yes" checked>
+              <label class="form-check-label" for="gridRadios1">
+                Yes
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" formControlName="radio" name="radio" id="radio2" value="No">
+              <label class="form-check-label" for="gridRadios2">
+                No
+              </label>
+            </div>
+          </div>
+        </div>
+      </fieldset>
+      <div class="form-group row">
+            <label for="inputEmail3" class="col-sm-2  col-form-label">How long have you been using CiviCRM?</label>
+            <div class="col-sm-4">
+                    <select id="inputState" formControlName="using" class="form-control">
+                        <option><2Years</option>
+                            <option>2YEARS</option>
+                            <option>>2+YEARS</option>
+                          </select>
+            </div>
+          </div>
+          <div class="form-group row">
+                <label for="inputEmail3" class="col-sm-2 col-form-label">Which CMS do you use?</label>
+                <div class="col-sm-3">
+                        <select id="inputState" formControlName="whichCMS" class="form-control">
+                                <option>option1</option>
+                                <option>option2</option>
+                              </select>
+                </div>
+              </div>
+              <div class="form-group row">
+                    <label for="inputEmail3" class="col-sm-2  col-form-label">Your skill set</label>
+                    <div class="col-sm-5">
+                            <select id="inputState" formControlName="skill" class="form-control">
+                                    <option>Decision Making</option>
+                                    <option>Leadership</option>
+                                    <option>Time Management</option>
+                                  </select>
+                    </div>
+                  </div>
+      <div class="form-group row">
+        <label for="email" class="col-sm-2  col-form-label">Email*</label>
+        <div class="col-sm-3">
+          <input required type="email" class="form-control" id="email" formControlName="email" placeholder="Email">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="firstname" class="col-sm-2  col-form-label">First Name*</label>
+        <div class="col-sm-3">
+          <input type="text" class="form-control" id="firstname" formControlName="firstname" placeholder="jhon">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="lastname" class="col-sm-2  col-form-label">Last Name*</label>
+        <div class="col-sm-3">
+          <input required type="text" class="form-control" id="lastname" formControlName="lastname" placeholder="Lee">
+        </div><br>
+        <div *ngIf="!myForm.controls.lastname.valid"><p>First and Last Name will be shared with the other visitors of the site</p></div>
+      </div>
+      <div class="form-group row">
+        <label for="address" class="col-sm-2  col-form-label">Street Address(Home)</label>
+        <div class="col-sm-3">
+          <input type="text" class="form-control" id="address" formControlName="address" placeholder="2-134">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="city" class="col-sm-2  col-form-label">City(Home)</label>
+        <div class="col-sm-3">
+          <input type="text" class="form-control" id="city" formControlName="city" placeholder="city">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="postalcode" class="col-sm-2  col-form-label">Postal Code</label>
+        <div class="col-sm-3">
+          <input type="text" class="form-control" id="postalcode" formControlName="postalcode" placeholder="122347">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="country" class="col-sm-2  col-form-label">Country</label>
+        <div class="col-sm-3">
+                <select id="country" formControlName="country" class="form-control">
+                        <option>India</option>
+                        <option>US</option>
+                        <option>Germany</option>
+                        <option>Sri Lanka</option>
+                        <option>SA</option>
+                      </select>
+        </div>
+        <div>Your state/province will be shared with the other visitors of the site</div>
+      </div>
+      <div class="form-group row">
+            <label for="state" class="col-sm-2  col-form-label">State</label>
+            <div class="col-sm-6">
+                    <select id="state" formControlName="state" class="form-control">
+                            <option>AP</option>
+                            <option>KARNATAKA</option>
+                            <option>TS</option>
+                            <option>KERALA</option>
+                          </select>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary" [disabled]="!myForm.valid">Submit</button> &nbsp;&nbsp;
+          <button type="button" class="btn btn-primary" (click)="clearForm()">clear</button>
+</form>
+<table class="table">
+<thead class="thead-dark">
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">USE</th>
+          <th scope="col">DURATION</th>
+          <th scope="col">WHICH CMS</th>
+          <th scope="col">SKILL</th>
+          <th scope="col">EMAIL</th>
+          <th scope="col">FIRST NAME</th>
+          <th scope="col">LAST NAME</th>
+          <th scope="col">ADDRESS</th>
+          <th scope="col">EDIT</th>
+          <th scope="col">DELETE</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let obj of allusers;let i=index">
+          <td>{{obj.id}}</td>
+          <td>{{obj.radio}}</td>
+          <td>{{obj.using}}</td>
+          <td>{{obj.whichCMS}}</td>
+          <td>{{obj.skill}}</td>
+          <td>{{obj.email}}</td>
+          <td>{{obj.firstname}}</td>
+          <td>{{obj.lastname}}</td>
+          <td>{{obj.address}},{{obj.city}},{{obj.postalcode}},{{obj.country}},{{obj.state}}</td>
+          <td><button type="button" class="btn btn-primary" (click)="edit(obj)">EDIT</button></td>
+          <td><button type="button" class="btn btn-danger" (click)="delete(obj,i)">DELETE</button></td>
+        </tr>
+      </tbody>
+    </table>
